@@ -1,0 +1,9 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/campaign/{campaign_id}")
+def read_campaign(campaign_id: int):
+    # Here you would typically fetch campaign data from your database based on the campaign_id
+    # For simplicity, we'll return a static response
+    return {"campaign_id": campaign_id, "name": "Sample Campaign", "goal": 1000, "raised": 500}

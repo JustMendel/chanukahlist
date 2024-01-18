@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+
+class CampaignPage extends StatelessWidget {
+  final int campaignId;
+
+  CampaignPage({Key key, @required this.campaignId}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // Here you would typically make a network request to your FastAPI server to fetch the campaign data
+    // For simplicity, we'll use static data
+    var campaign = {"campaign_id": campaignId, "name": "Sample Campaign", "goal": 1000, "raised": 500};
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(campaign['name']),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('Goal: ${campaign['goal']}'),
+            Text('Raised: ${campaign['raised']}'),
+          ],
+        ),
+      ),
+    );
+  }
+}
