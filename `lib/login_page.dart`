@@ -1,0 +1,64 @@
+import 'package:flutter/material.dart';
+
+class LoginPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final emailField = TextField(
+      obscureText: false,
+      decoration: InputDecoration(
+          hintText: 'Email',
+      ),
+    );
+    final passwordField = TextField(
+      obscureText: true,
+      decoration: InputDecoration(
+          hintText: 'Password',
+      ),
+    );
+    final loginButton = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(30.0),
+      color: Color(0xff01A0C7),
+      child: MaterialButton(
+        minWidth: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        onPressed: () {
+          // Here you would typically make a network request to your FastAPI server to authenticate the user
+          // For simplicity, we'll just print a message
+          print('Login button pressed');
+        },
+        child: Text("Login",
+            textAlign: TextAlign.center,
+        ),
+      ),
+    );
+
+    return Scaffold(
+      body: Center(
+        child: Container(
+          color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.all(36.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(height: 45.0),
+                emailField,
+                SizedBox(height: 25.0),
+                passwordField,
+                SizedBox(
+                  height: 35.0,
+                ),
+                loginButton,
+                SizedBox(
+                  height: 15.0,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
